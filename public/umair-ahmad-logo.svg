@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Umair Ahmad UA logo</title>
+  <desc id="desc">A modern UA monogram logo for Umair Ahmad with classic serif letterforms and luminous accent lines.</desc>
+  <rect width="512" height="512" rx="112" fill="#0B0C0F"/>
+  <rect x="22" y="22" width="468" height="468" rx="96" stroke="url(#paint0_linear)" stroke-width="8"/>
+  <path d="M132 126V296C132 354 169 388 226 388C283 388 320 354 320 296V126H273V294C273 324 256 343 226 343C196 343 179 324 179 294V126H132Z" fill="#F7F4ED"/>
+  <path d="M292 388L371 126H420L499 388H448L432 329H358L342 388H292ZM369 287H421L395 190L369 287Z" fill="#F7F4ED"/>
+  <path d="M88 412H424" stroke="url(#paint1_linear)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M88 100H272" stroke="url(#paint2_linear)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="114" cy="114" r="14" fill="#68D8FF"/>
+  <circle cx="398" cy="398" r="14" fill="#F6C76D"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="52" y1="52" x2="460" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#68D8FF"/>
+      <stop offset="0.5" stop-color="#B788FF"/>
+      <stop offset="1" stop-color="#F6C76D"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="88" y1="412" x2="424" y2="412" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#68D8FF"/>
+      <stop offset="1" stop-color="#F6C76D"/>
+    </linearGradient>
+    <linearGradient id="paint2_linear" x1="88" y1="100" x2="272" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6C76D"/>
+      <stop offset="1" stop-color="#B788FF"/>
+    </linearGradient>
+  </defs>
+</svg>
