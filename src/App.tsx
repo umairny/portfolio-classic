@@ -7,6 +7,7 @@ import { CreativeControls } from './components/CreativeControls'
 import { DesignSection } from './components/DesignSection'
 import { EducationSection } from './components/EducationSection'
 import { ExperienceSection } from './components/ExperienceSection'
+import { Footer } from './components/Footer'
 import { HeroSection } from './components/HeroSection'
 import { Navigation } from './components/Navigation'
 import { ServicesSection } from './components/ServicesSection'
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <main
+      id="top"
       className={`site theme-${theme} style-${style}`}
       style={
         {
@@ -40,13 +42,13 @@ function App() {
       }}
     >
       <Navigation />
-      <HeroSection styleMode={style} />
       <CreativeControls
         theme={theme}
         styleMode={style}
         onThemeChange={setTheme}
         onStyleChange={setStyle}
       />
+      <HeroSection styleMode={style} />
       <ServicesSection />
       <DesignSection activeDesign={activeDesign} onDesignChange={setActiveDesign} />
       <WorkSection activeProject={activeProject} onProjectChange={setActiveProject} />
@@ -56,6 +58,7 @@ function App() {
       <EducationSection />
       <TestimonialsSection />
       <ContactSection />
+      <Footer />
     </main>
   )
 }

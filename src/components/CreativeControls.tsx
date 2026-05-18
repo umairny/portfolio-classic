@@ -5,6 +5,17 @@ type CreativeControlsProps = {
   onStyleChange: (style: string) => void
 }
 
+const themeOptions = [
+  { id: 'midnight', label: 'Midnight' },
+  { id: 'paper', label: 'Paper' },
+  { id: 'gold', label: 'Gold' },
+]
+
+const styleOptions = [
+  { id: 'classic', label: 'Classic' },
+  { id: 'future', label: 'Future' },
+]
+
 export function CreativeControls({
   theme,
   styleMode,
@@ -13,32 +24,30 @@ export function CreativeControls({
 }: CreativeControlsProps) {
   return (
     <section className="section studio-panel" aria-label="Interactive creative controls">
-      <div>
-        <p className="eyebrow">Creative Playground</p>
-        <h2>A portfolio visitors can touch: switch moods, explore work, and understand the range fast.</h2>
-      </div>
       <div className="controls">
         <div className="control-group" aria-label="Theme color">
-          {['midnight', 'paper', 'gold'].map((item) => (
+          {themeOptions.map((item) => (
             <button
-              className={theme === item ? 'active' : ''}
-              key={item}
+              className={theme === item.id ? 'active' : ''}
+              key={item.id}
               type="button"
-              onClick={() => onThemeChange(item)}
+              onClick={() => onThemeChange(item.id)}
             >
-              {item}
+              <span className={`control-icon theme-icon control-theme-${item.id}`} aria-hidden="true" />
+              <span>{item.label}</span>
             </button>
           ))}
         </div>
         <div className="control-group" aria-label="Design style">
-          {['classic', 'future'].map((item) => (
+          {styleOptions.map((item) => (
             <button
-              className={styleMode === item ? 'active' : ''}
-              key={item}
+              className={styleMode === item.id ? 'active' : ''}
+              key={item.id}
               type="button"
-              onClick={() => onStyleChange(item)}
+              onClick={() => onStyleChange(item.id)}
             >
-              {item}
+              <span className={`control-icon style-icon control-style-${item.id}`} aria-hidden="true" />
+              <span>{item.label}</span>
             </button>
           ))}
         </div>

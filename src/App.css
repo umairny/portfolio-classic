@@ -138,6 +138,45 @@
   color: var(--text);
 }
 
+.nav-toggle {
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--text);
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  height: 44px;
+  justify-content: center;
+  padding: 0;
+  width: 44px;
+}
+
+.nav-toggle span {
+  background: currentColor;
+  border-radius: 999px;
+  display: block;
+  height: 2px;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+  width: 18px;
+}
+
+.nav-open .nav-toggle span:first-child {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-open .nav-toggle span:last-child {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .hero-section {
   align-items: center;
   display: grid;
@@ -454,14 +493,23 @@ h3 {
   padding: 28px;
 }
 
-.studio-panel h2 {
-  font-size: clamp(1.8rem, 3vw, 3.2rem);
-  margin-bottom: 0;
+.studio-panel {
+  justify-content: center;
+  margin-top: 10px;
+  padding: 8px;
+  width: fit-content;
+}
+
+.studio-panel + .hero-section {
+  min-height: calc(100svh - 170px);
+  padding-top: 34px;
 }
 
 .controls {
-  display: grid;
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
 }
 
 .control-group {
@@ -469,8 +517,8 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 999px;
   display: flex;
-  gap: 6px;
-  padding: 6px;
+  gap: 3px;
+  padding: 4px;
 }
 
 .control-group button,
@@ -481,16 +529,79 @@ h3 {
 }
 
 .control-group button {
+  align-items: center;
   background: transparent;
   border-radius: 999px;
   color: var(--muted);
-  padding: 10px 14px;
+  display: inline-flex;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 10px;
   text-transform: capitalize;
 }
 
 .control-group button.active {
   background: var(--text);
   color: var(--bg);
+}
+
+.control-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.theme-icon {
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.control-theme-midnight {
+  background: linear-gradient(135deg, #0b0c0f 0 55%, #68d8ff 56%);
+}
+
+.control-theme-paper {
+  background: linear-gradient(135deg, #f8f3ea 0 55%, #006fe6 56%);
+}
+
+.control-theme-gold {
+  background: linear-gradient(135deg, #11100d 0 55%, #f6c76d 56%);
+}
+
+.style-icon {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.control-style-classic::before {
+  content: "Aa";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.control-style-future::before {
+  background: currentColor;
+  border-radius: 2px;
+  content: "";
+  height: 4px;
+  position: absolute;
+  width: 4px;
+}
+
+.control-style-future::before {
+  box-shadow:
+    6px 0 0 currentColor,
+    0 6px 0 currentColor,
+    6px 6px 0 currentColor;
+  left: 4px;
+  top: 4px;
 }
 
 .split {
@@ -885,7 +996,7 @@ meter::-webkit-meter-optimum-value {
   display: grid;
   gap: 40px;
   grid-template-columns: 0.85fr 1.15fr;
-  padding-bottom: 110px;
+  padding-bottom: 58px;
 }
 
 .contact-info {
@@ -920,6 +1031,64 @@ select option {
 
 textarea {
   resize: vertical;
+}
+
+.site-footer {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-inline: auto;
+  max-width: 1180px;
+  padding: 28px 0 34px;
+  position: relative;
+  width: min(calc(100% - 32px), 1180px);
+  z-index: 1;
+}
+
+.site-footer strong {
+  color: var(--text);
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.site-footer span,
+.site-footer p {
+  line-height: 1.5;
+}
+
+.site-footer p {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.footer-links a {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 13px;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.footer-links a:hover {
+  background: var(--panel-strong);
+  transform: translateY(-2px);
 }
 
 .style-future h1,
@@ -1019,24 +1188,54 @@ textarea {
 
 @media (max-width: 640px) {
   .site {
-    padding-top: 126px;
+    padding-top: 88px;
   }
 
   .nav {
     align-items: center;
     border-radius: 18px;
+    flex-wrap: wrap;
     gap: 10px;
+    padding: 9px;
     top: 10px;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
   }
 
   .nav-links {
     border-radius: 14px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    display: grid;
+    flex-basis: 100%;
+    gap: 6px;
+    grid-template-columns: 1fr;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 6px;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition:
+      max-height 220ms ease,
+      opacity 180ms ease,
+      padding 180ms ease,
+      transform 180ms ease;
+    width: 100%;
   }
 
   .nav-links a {
-    padding: 8px 10px;
+    padding: 11px 12px;
+    text-align: center;
+  }
+
+  .nav-open .nav-links {
+    max-height: 280px;
+    opacity: 1;
+    padding: 6px;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .service-grid,
@@ -1054,15 +1253,41 @@ textarea {
     padding: 58px 0;
   }
 
+  .studio-panel {
+    margin-top: 4px;
+    padding: 5px;
+  }
+
+  .studio-panel + .hero-section {
+    padding-top: 18px;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+
   .hero-actions,
   .controls,
   .control-group {
     width: 100%;
   }
 
+  .studio-panel .controls,
+  .studio-panel .control-group {
+    width: auto;
+  }
+
   .button,
   .control-group button {
     flex: 1 1 auto;
+  }
+
+  .studio-panel .control-group button {
+    flex: 0 0 auto;
   }
 
   .tool-chip {

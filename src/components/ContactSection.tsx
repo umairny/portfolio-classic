@@ -6,7 +6,6 @@ export function ContactSection() {
         <h2>Let's build something memorable, useful, and beautifully made.</h2>
         <div className="contact-info">
           <a href="mailto:umairny1@gmail.com">umairny1@gmail.com</a>
-          <a href="tel:+19292613767">+1 929 261 3767</a>
           <span>Queens NYC, New York, USA</span>
           <a href="https://www.linkedin.com/in/umairny/" target="_blank">
             LinkedIn
