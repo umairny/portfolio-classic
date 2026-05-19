@@ -26,6 +26,21 @@ export function HeroSection({ styleMode }: HeroSectionProps) {
       </div>
 
       <div className="hero-visual" aria-label="Interactive portfolio preview">
+        {styleMode === 'three-d' && (
+          <div className="scene-3d" aria-hidden="true">
+            <div className="cube-3d">
+              <span className="cube-face cube-front">UA</span>
+              <span className="cube-face cube-back">Web</span>
+              <span className="cube-face cube-right">3D</span>
+              <span className="cube-face cube-left">Print</span>
+              <span className="cube-face cube-top">Brand</span>
+              <span className="cube-face cube-bottom">Cloud</span>
+            </div>
+            <span className="orbital-ring ring-x"></span>
+            <span className="orbital-ring ring-y"></span>
+            <span className="orbital-ring ring-z"></span>
+          </div>
+        )}
         <div className="visual-panel panel-main">
           <span>Umair Ahmad Studio</span>
           <strong>Design, print, web, and cloud</strong>
@@ -37,7 +52,13 @@ export function HeroSection({ styleMode }: HeroSectionProps) {
         </div>
         <div className="visual-panel panel-small">
           <span>Live Studio</span>
-          <strong>{styleMode === 'classic' ? 'Print discipline' : 'Cloud apps'}</strong>
+          <strong>
+            {styleMode === 'classic'
+              ? 'Print discipline'
+              : styleMode === 'three-d'
+                ? '3D portfolio'
+                : 'Cloud apps'}
+          </strong>
         </div>
         <div className="tool-orbit" aria-hidden="true">
           {heroTools.map((tool) => (

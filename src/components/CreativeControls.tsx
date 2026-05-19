@@ -14,6 +14,7 @@ const themeOptions = [
 const styleOptions = [
   { id: 'classic', label: 'Classic' },
   { id: 'future', label: 'Future' },
+  { id: 'three-d', label: '3D Future' },
 ]
 
 export function CreativeControls({

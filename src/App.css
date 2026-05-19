@@ -14,6 +14,9 @@
   overflow: hidden;
   padding-top: 92px;
   position: relative;
+  transition:
+    background 420ms ease,
+    color 240ms ease;
   background:
     radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(104, 216, 255, 0.2), transparent 24rem),
     linear-gradient(135deg, rgba(183, 136, 255, 0.16), transparent 34rem),
@@ -287,6 +290,11 @@ h3 {
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
+  transition:
+    background 420ms ease,
+    border-color 260ms ease,
+    box-shadow 320ms ease,
+    transform 420ms ease;
 }
 
 .hero-visual::before {
@@ -351,6 +359,11 @@ h3 {
   gap: 8px;
   padding: 18px;
   position: absolute;
+  transition:
+    background 260ms ease,
+    border-color 260ms ease,
+    box-shadow 320ms ease,
+    transform 420ms ease;
   z-index: 2;
 }
 
@@ -393,6 +406,11 @@ h3 {
   min-width: 112px;
   padding: 8px 11px 8px 8px;
   position: absolute;
+  transition:
+    background 260ms ease,
+    border-color 260ms ease,
+    box-shadow 320ms ease,
+    transform 260ms ease;
 }
 
 .tool-chip b {
@@ -474,6 +492,93 @@ h3 {
 
 .signal-bars span:nth-child(5) {
   animation-delay: 0.6s;
+}
+
+.scene-3d {
+  inset: 0;
+  perspective: 900px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.cube-3d {
+  animation: cubeSpin 14s linear infinite;
+  height: clamp(116px, 20vw, 176px);
+  left: 50%;
+  position: absolute;
+  top: 52%;
+  transform-style: preserve-3d;
+  width: clamp(116px, 20vw, 176px);
+}
+
+.cube-face {
+  align-items: center;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 24%), transparent),
+    color-mix(in srgb, var(--bg), transparent 26%);
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 24%);
+  box-shadow:
+    inset 0 0 32px color-mix(in srgb, var(--accent), transparent 72%),
+    0 20px 50px rgba(0, 0, 0, 0.26);
+  color: var(--text);
+  display: flex;
+  font-size: clamp(0.82rem, 1.8vw, 1.1rem);
+  font-weight: 900;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.cube-front {
+  transform: translateZ(calc(clamp(116px, 20vw, 176px) / 2));
+}
+
+.cube-back {
+  transform: rotateY(180deg) translateZ(calc(clamp(116px, 20vw, 176px) / 2));
+}
+
+.cube-right {
+  transform: rotateY(90deg) translateZ(calc(clamp(116px, 20vw, 176px) / 2));
+}
+
+.cube-left {
+  transform: rotateY(-90deg) translateZ(calc(clamp(116px, 20vw, 176px) / 2));
+}
+
+.cube-top {
+  transform: rotateX(90deg) translateZ(calc(clamp(116px, 20vw, 176px) / 2));
+}
+
+.cube-bottom {
+  transform: rotateX(-90deg) translateZ(calc(clamp(116px, 20vw, 176px) / 2));
+}
+
+.orbital-ring {
+  border: 1px solid color-mix(in srgb, var(--accent-2), transparent 28%);
+  border-radius: 50%;
+  height: min(58%, 360px);
+  left: 50%;
+  position: absolute;
+  top: 52%;
+  transform-style: preserve-3d;
+  width: min(58%, 360px);
+}
+
+.ring-x {
+  animation: orbitX 9s linear infinite;
+}
+
+.ring-y {
+  animation: orbitY 10s linear infinite reverse;
+  border-color: color-mix(in srgb, var(--accent), transparent 34%);
+}
+
+.ring-z {
+  animation: orbitZ 12s linear infinite;
+  border-color: color-mix(in srgb, var(--accent-3), transparent 32%);
 }
 
 .section {
@@ -604,6 +709,29 @@ h3 {
   top: 4px;
 }
 
+.control-style-three-d {
+  transform-style: preserve-3d;
+}
+
+.control-style-three-d::before {
+  background:
+    linear-gradient(135deg, currentColor 0 50%, transparent 51%),
+    linear-gradient(45deg, color-mix(in srgb, currentColor, transparent 45%) 0 50%, transparent 51%);
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  box-shadow:
+    5px 3px 0 color-mix(in srgb, currentColor, transparent 45%),
+    9px 6px 0 color-mix(in srgb, currentColor, transparent 68%),
+    0 0 8px color-mix(in srgb, currentColor, transparent 52%);
+  content: "";
+  height: 8px;
+  left: 3px;
+  position: absolute;
+  top: 4px;
+  transform: skewY(-16deg) rotate(-4deg);
+  width: 8px;
+}
+
 .split {
   display: grid;
   gap: 40px;
@@ -626,6 +754,11 @@ form {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
+  transition:
+    background 260ms ease,
+    border-color 260ms ease,
+    box-shadow 320ms ease,
+    transform 260ms ease;
 }
 
 .service-card {
@@ -682,6 +815,11 @@ form label {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
+  transition:
+    background 260ms ease,
+    border-color 260ms ease,
+    box-shadow 320ms ease,
+    transform 260ms ease;
 }
 
 .design-preview {
@@ -773,6 +911,11 @@ form label {
   min-height: 96px;
   padding: 18px;
   text-align: left;
+  transition:
+    background 260ms ease,
+    border-color 260ms ease,
+    box-shadow 320ms ease,
+    transform 260ms ease;
 }
 
 .project-list button span {
@@ -879,6 +1022,11 @@ form label {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
+  transition:
+    background 260ms ease,
+    border-color 260ms ease,
+    box-shadow 320ms ease,
+    transform 260ms ease;
 }
 
 .stat-grid article {
@@ -1113,6 +1261,161 @@ textarea {
   border-radius: 22px;
 }
 
+.style-three-d {
+  background:
+    radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(104, 216, 255, 0.24), transparent 23rem),
+    radial-gradient(circle at 78% 16%, rgba(246, 199, 109, 0.18), transparent 22rem),
+    linear-gradient(145deg, rgba(183, 136, 255, 0.16), transparent 36rem),
+    var(--bg);
+}
+
+.style-three-d h1,
+.style-three-d h2,
+.style-three-d .project-preview h3,
+.style-three-d .testimonials p {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.style-three-d .hero-section {
+  perspective: 1400px;
+}
+
+.style-three-d .hero-copy {
+  transform: translateZ(18px);
+}
+
+.style-three-d .hero-visual {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent), transparent 86%), transparent 46%),
+    linear-gradient(315deg, color-mix(in srgb, var(--accent-2), transparent 82%), transparent 54%),
+    color-mix(in srgb, var(--bg), transparent 10%);
+  border-color: color-mix(in srgb, var(--accent), transparent 30%);
+  box-shadow:
+    0 42px 90px rgba(0, 0, 0, 0.38),
+    0 0 70px color-mix(in srgb, var(--accent), transparent 72%);
+  transform: rotateX(4deg) rotateY(-7deg);
+  transform-style: preserve-3d;
+}
+
+.style-three-d .hero-visual::before {
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.34;
+  transform: translateZ(-60px) scale(1.08);
+}
+
+.style-three-d .hero-logo-stage {
+  transform: translate(-50%, -50%) translateZ(150px);
+}
+
+.style-three-d .hero-logo {
+  animation: logoFloat3d 6s ease-in-out infinite;
+}
+
+.style-three-d .visual-panel,
+.style-three-d .tool-chip,
+.style-three-d .service-card,
+.style-three-d .project-preview,
+.style-three-d .skill-card,
+.style-three-d .design-preview,
+.style-three-d .design-grid button,
+.style-three-d form,
+.style-three-d .studio-panel,
+.style-three-d .testimonials,
+.style-three-d .stat-grid article,
+.style-three-d .timeline article,
+.style-three-d .education-panel {
+  border-radius: 8px;
+  border-color: color-mix(in srgb, var(--accent), transparent 42%);
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.style-three-d .section,
+.style-three-d .work-layout,
+.style-three-d .design-layout,
+.style-three-d .skill-grid,
+.style-three-d .service-grid,
+.style-three-d .stat-grid,
+.style-three-d .timeline,
+.style-three-d .education-panel,
+.style-three-d .contact {
+  perspective: 1200px;
+}
+
+.style-three-d .service-card,
+.style-three-d .skill-card,
+.style-three-d .project-list button,
+.style-three-d .design-grid button,
+.style-three-d .stat-grid article,
+.style-three-d .timeline article,
+.style-three-d .education-panel,
+.style-three-d form,
+.style-three-d .testimonials article {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent), transparent 92%), transparent 42%),
+    var(--panel);
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+}
+
+.style-three-d .service-card:nth-child(even),
+.style-three-d .skill-card:nth-child(even),
+.style-three-d .design-grid button:nth-child(even),
+.style-three-d .stat-grid article:nth-child(even),
+.style-three-d .timeline article:nth-child(even) {
+  transform: translateZ(14px) rotateY(-1.4deg);
+}
+
+.style-three-d .service-card:nth-child(odd),
+.style-three-d .skill-card:nth-child(odd),
+.style-three-d .design-grid button:nth-child(odd),
+.style-three-d .stat-grid article:nth-child(odd),
+.style-three-d .timeline article:nth-child(odd) {
+  transform: translateZ(8px) rotateY(1.2deg);
+}
+
+.style-three-d .design-preview,
+.style-three-d .project-preview {
+  transform: rotateX(2deg) rotateY(-2deg);
+}
+
+.style-three-d .panel-main {
+  transform: translateZ(90px);
+}
+
+.style-three-d .panel-small {
+  transform: translateZ(120px);
+}
+
+.style-three-d .tool-chip {
+  transform-style: preserve-3d;
+}
+
+.style-three-d .service-card:hover,
+.style-three-d .project-list button:hover,
+.style-three-d .design-grid button:hover,
+.style-three-d .skill-card:hover,
+.style-three-d .stat-grid article:hover,
+.style-three-d .timeline article:hover {
+  border-color: color-mix(in srgb, var(--accent), transparent 16%);
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, 0.3),
+    0 0 34px color-mix(in srgb, var(--accent), transparent 78%);
+  transform: translateY(-8px) translateZ(34px) rotateX(3deg);
+}
+
+.style-three-d .project-preview:hover,
+.style-three-d .design-preview:hover,
+.style-three-d form:hover,
+.style-three-d .education-panel:hover {
+  border-color: color-mix(in srgb, var(--accent), transparent 22%);
+  transform: translateY(-4px) translateZ(24px) rotateX(2deg) rotateY(-2deg);
+}
+
 @keyframes logoLift {
   0%,
   100% {
@@ -1159,6 +1462,57 @@ textarea {
   }
 }
 
+@keyframes logoFloat3d {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(-6deg);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 32px) rotateX(7deg) rotateY(8deg);
+  }
+}
+
+@keyframes cubeSpin {
+  0% {
+    transform: translate(-50%, -50%) rotateX(-18deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateX(-18deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitX {
+  0% {
+    transform: translate(-50%, -50%) rotateX(72deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateX(72deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitY {
+  0% {
+    transform: translate(-50%, -50%) rotateY(70deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateY(70deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitZ {
+  0% {
+    transform: translate(-50%, -50%) rotateX(58deg) rotateY(36deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateX(58deg) rotateY(36deg) rotateZ(360deg);
+  }
+}
+
 @media (max-width: 920px) {
   .hero-section,
   .split,
@@ -1177,6 +1531,33 @@ textarea {
   .hero-visual {
     max-width: 560px;
     width: 100%;
+  }
+
+  .style-three-d .hero-visual {
+    transform: rotateX(2deg) rotateY(-3deg);
+  }
+
+  .style-three-d .cube-3d {
+    height: clamp(92px, 24vw, 132px);
+    top: 54%;
+    width: clamp(92px, 24vw, 132px);
+  }
+
+  .style-three-d .orbital-ring {
+    height: min(50%, 280px);
+    width: min(50%, 280px);
+  }
+
+  .style-three-d .hero-logo-stage {
+    transform: translate(-50%, -50%) translateZ(84px);
+  }
+
+  .style-three-d .panel-main {
+    transform: translateZ(48px);
+  }
+
+  .style-three-d .panel-small {
+    transform: translateZ(64px);
   }
 
   .studio-panel,
@@ -1290,6 +1671,25 @@ textarea {
     flex: 0 0 auto;
   }
 
+  .style-three-d .hero-visual,
+  .style-three-d .design-preview,
+  .style-three-d .project-preview,
+  .style-three-d .service-card:nth-child(n),
+  .style-three-d .skill-card:nth-child(n),
+  .style-three-d .design-grid button:nth-child(n),
+  .style-three-d .stat-grid article:nth-child(n),
+  .style-three-d .timeline article:nth-child(n) {
+    transform: none;
+  }
+
+  .style-three-d .scene-3d {
+    opacity: 0.72;
+  }
+
+  .style-three-d .ring-y {
+    display: none;
+  }
+
   .tool-chip {
     min-width: 0;
     padding-right: 8px;
@@ -1307,5 +1707,37 @@ textarea {
   .tool-chip:nth-child(6),
   .signal-bars {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .style-three-d .hero-visual,
+  .style-three-d .hero-logo,
+  .style-three-d .cube-3d,
+  .style-three-d .orbital-ring,
+  .tool-chip,
+  .signal-bars span,
+  .pulse-ring {
+    animation: none !important;
+  }
+
+  .style-three-d .hero-visual,
+  .style-three-d .design-preview,
+  .style-three-d .project-preview,
+  .style-three-d .service-card:nth-child(n),
+  .style-three-d .skill-card:nth-child(n),
+  .style-three-d .design-grid button:nth-child(n),
+  .style-three-d .stat-grid article:nth-child(n),
+  .style-three-d .timeline article:nth-child(n) {
+    transform: none;
   }
 }
