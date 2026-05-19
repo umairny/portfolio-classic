@@ -11,6 +11,7 @@ import { Footer } from './components/Footer'
 import { HeroSection } from './components/HeroSection'
 import { Navigation } from './components/Navigation'
 import { ServicesSection } from './components/ServicesSection'
+import { SiteEffects } from './components/SiteEffects'
 import { SkillsSection } from './components/SkillsSection'
 import { TestimonialsSection } from './components/TestimonialsSection'
 import { WorkSection } from './components/WorkSection'
@@ -41,6 +42,7 @@ function App() {
         })
       }}
     >
+      <SiteEffects />
       <Navigation />
       <CreativeControls
         theme={theme}

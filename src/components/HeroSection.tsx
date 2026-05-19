@@ -1,4 +1,4 @@
-import { heroTools } from '../data/portfolio'
+import { designGallery, heroTools } from '../data/portfolio'
 import { assetPath } from '../utils/assets'
 
 type HeroSectionProps = {
@@ -15,6 +15,10 @@ export function HeroSection({ styleMode }: HeroSectionProps) {
           I create eye-catching visuals and practical digital experiences for businesses that need
           design sense and development skill in one workflow.
         </p>
+        <a className="scroll-cue" href="#services">
+          <span>Scroll to Explore</span>
+          <b aria-hidden="true">↓</b>
+        </a>
         <div className="hero-actions">
           <a className="button primary" href="#work">
             View Work
@@ -23,9 +27,21 @@ export function HeroSection({ styleMode }: HeroSectionProps) {
             Start a Project
           </a>
         </div>
+        <div className="hero-image-rail" aria-hidden="true">
+          <div className="hero-rail-track">
+            {[...designGallery.slice(0, 4), ...designGallery.slice(0, 4)].map((item, index) => (
+              <span className="rail-frame" key={`${item.image}-${index}`}>
+                <img src={item.image} alt="" />
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="hero-visual" aria-label="Interactive portfolio preview">
+      <div className="hero-visual" aria-label="Interactive portfolio preview" data-tilt>
+        <div className="hero-editorial-image parallax-media" aria-hidden="true">
+          <img src={designGallery[3].image} alt="" />
+        </div>
         {styleMode === 'three-d' && (
           <div className="scene-3d" aria-hidden="true">
             <div className="cube-3d">

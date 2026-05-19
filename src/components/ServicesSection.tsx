@@ -1,4 +1,4 @@
-import { services } from '../data/portfolio'
+import { designGallery, services } from '../data/portfolio'
 
 export function ServicesSection() {
   return (
@@ -10,6 +10,9 @@ export function ServicesSection() {
       <div className="service-grid">
         {services.map((service, index) => (
           <article className="service-card" key={service}>
+            <figure className="service-media parallax-media" aria-hidden="true">
+              <img src={designGallery[index % designGallery.length].image} alt="" />
+            </figure>
             <span>{String(index + 1).padStart(2, '0')}</span>
             <h3>{service}</h3>
             <p>

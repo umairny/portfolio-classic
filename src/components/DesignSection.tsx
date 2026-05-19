@@ -18,13 +18,23 @@ export function DesignSection({ activeDesign, onDesignChange }: DesignSectionPro
         </p>
       </div>
       <div className="design-layout">
-        <article className="design-preview">
+        <article className="design-preview parallax-media">
           <img src={activeDesign.image} alt={activeDesign.title} />
           <div>
             <span>{activeDesign.type}</span>
             <h3>{activeDesign.title}</h3>
           </div>
         </article>
+        <div className="scroll-phrase" aria-hidden="true">
+          <span>Design</span>
+          <span>Print</span>
+          <span>Brand</span>
+          <span>Web</span>
+          <span>Design</span>
+          <span>Print</span>
+          <span>Brand</span>
+          <span>Web</span>
+        </div>
         <div className="design-grid" aria-label="Design gallery thumbnails">
           {designGallery.map((item) => (
             <button
